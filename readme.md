@@ -4,11 +4,23 @@ The DAFT coding principles are a set of principles that are used to guide the co
 
 ## D is for Dimensionality
 
-When creating an abstraction in place of a third party library, it is important to determine the dimensionality of the problem we are abstracting over.
+When creating an abstraction, it is important to determine the dimensionality of the problem we are abstracting over.
 Examples:
 
 - High dimensionality - the UI layer in HTML (e.g. div), due to the number of possible parameters used as an input
 - Low dimensionality - a math utility function that computes the fibonacci sequence
+
+If the problem is inherently high dimensionality, then an abstraction will not solve the problem.
+
+### Good abstractions contain complexity without limiting functionality
+
+A good example of how can prevent the clash of two high dimenisonality problems, is to keep them in separate layers.
+In a typical web application, these might be considered common high dimensionality problems
+1. Styling in the UI
+2. State Management in the UI
+3. Data Aggregation in the UI
+
+We could use Dependency Injection via React Context to try to contain some of the complex state management and data aggregation so that the overall dimensionality of the UI problem is decreased.
 
 ## A is for Architecture
 
